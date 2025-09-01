@@ -1,0 +1,109 @@
+﻿namespace fotomaster
+{
+    partial class FormAdmin
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.btnregistrocliente = new System.Windows.Forms.Button();
+            this.btnregistrousuario = new System.Windows.Forms.Button();
+            this.btnsalir = new System.Windows.Forms.Button();
+            this.btnreportes = new System.Windows.Forms.Button();
+            this.btnventa = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // btnregistrocliente
+            // 
+            this.btnregistrocliente.Location = new System.Drawing.Point(22, 90);
+            this.btnregistrocliente.Name = "btnregistrocliente";
+            this.btnregistrocliente.Size = new System.Drawing.Size(159, 65);
+            this.btnregistrocliente.TabIndex = 0;
+            this.btnregistrocliente.Text = "Cliente";
+            this.btnregistrocliente.UseVisualStyleBackColor = true;
+            this.btnregistrocliente.Click += new System.EventHandler(this.btnregistrocliente_Click);
+            // 
+            // btnregistrousuario
+            // 
+            this.btnregistrousuario.Location = new System.Drawing.Point(22, 170);
+            this.btnregistrousuario.Name = "btnregistrousuario";
+            this.btnregistrousuario.Size = new System.Drawing.Size(159, 70);
+            this.btnregistrousuario.TabIndex = 3;
+            this.btnregistrousuario.Text = "Usuarios";
+            this.btnregistrousuario.UseVisualStyleBackColor = true;
+            // 
+            // btnsalir
+            // 
+            this.btnsalir.Location = new System.Drawing.Point(22, 12);
+            this.btnsalir.Name = "btnsalir";
+            this.btnsalir.Size = new System.Drawing.Size(85, 52);
+            this.btnsalir.TabIndex = 4;
+            this.btnsalir.Text = "Salir";
+            this.btnsalir.UseVisualStyleBackColor = true;
+            this.btnsalir.Click += new System.EventHandler(this.btnsalir_Click);
+            // 
+            // btnreportes
+            // 
+            this.btnreportes.Location = new System.Drawing.Point(22, 246);
+            this.btnreportes.Name = "btnreportes";
+            this.btnreportes.Size = new System.Drawing.Size(159, 75);
+            this.btnreportes.TabIndex = 5;
+            this.btnreportes.Text = "Reportes";
+            this.btnreportes.UseVisualStyleBackColor = true;
+            // 
+            // btnventa
+            // 
+            this.btnventa.Location = new System.Drawing.Point(22, 327);
+            this.btnventa.Name = "btnventa";
+            this.btnventa.Size = new System.Drawing.Size(159, 74);
+            this.btnventa.TabIndex = 6;
+            this.btnventa.Text = "Venta";
+            this.btnventa.UseVisualStyleBackColor = true;
+            // 
+            // FormAdmin
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1210, 662);
+            this.Controls.Add(this.btnventa);
+            this.Controls.Add(this.btnreportes);
+            this.Controls.Add(this.btnsalir);
+            this.Controls.Add(this.btnregistrousuario);
+            this.Controls.Add(this.btnregistrocliente);
+            this.Name = "FormAdmin";
+            this.Text = "FormAdmin";
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Button btnregistrocliente;
+        private System.Windows.Forms.Button btnregistrousuario;
+        private System.Windows.Forms.Button btnsalir;
+        private System.Windows.Forms.Button btnreportes;
+        private System.Windows.Forms.Button btnventa;
+    }
+}
