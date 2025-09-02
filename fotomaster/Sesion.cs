@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace fotomaster
 {
-    internal class Sesion
+    public class Sesion
     {
-        public static int IdUsuario { get; set; }
-        public static int IdRol { get; set; }
+        public static int idUsuario { get; set; }
+        public static int idRol { get; set; }
         public static string Username { get; set; }
     }
 }

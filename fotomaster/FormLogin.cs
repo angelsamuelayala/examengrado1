@@ -47,17 +47,17 @@ namespace fotomaster
                     if (reader.Read())
                     {
                         // Guardar datos en la sesión
-                        Sesion.IdUsuario = reader.GetInt32("idUsuario");
-                        Sesion.IdRol = reader.GetInt32("idRol");
+                        Sesion.idUsuario = reader.GetInt32("idUsuario");
+                        Sesion.idRol = reader.GetInt32("idRol");
                         Sesion.Username = reader.GetString("username");
 
-                        if (Sesion.IdRol == 1)
+                        if (Sesion.idRol == 1)
                         {
                             FormAdmin frm = new FormAdmin();
                             frm.Show();
                             this.Hide();
                         }
-                        else if (Sesion.IdRol == 2)
+                        else if (Sesion.idRol == 2)
                         {
                             FormEmpleado frm = new FormEmpleado();
                             frm.Show();

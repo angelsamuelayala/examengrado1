@@ -49,6 +49,7 @@
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(294, 20);
             this.txtUsuario.TabIndex = 1;
+            this.txtUsuario.Text = "Admin";
             // 
             // txtContraseña
             // 
@@ -56,6 +57,7 @@
             this.txtContraseña.Name = "txtContraseña";
             this.txtContraseña.Size = new System.Drawing.Size(315, 20);
             this.txtContraseña.TabIndex = 2;
+            this.txtContraseña.Text = "123";
             // 
             // FormLogin
             // 

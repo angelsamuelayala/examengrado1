@@ -47,7 +47,7 @@ namespace fotomaster
                         // Pasar parámetros al procedimiento almacenado
                         cmd.Parameters.AddWithValue("@pnombre", nombre);
                         cmd.Parameters.AddWithValue("@papellido", apellido);
-                        cmd.Parameters.AddWithValue("@pidUsuario", Sesion.IdUsuario); // Usando la sesión
+                        cmd.Parameters.AddWithValue("@pidUsuario", Sesion.idUsuario); // Usando la sesión
 
                         cmd.ExecuteNonQuery();
                     }
@@ -92,6 +92,54 @@ namespace fotomaster
             {
                 MessageBox.Show("Error al cargar clientes: " + ex.Message);
             }
+        }
+
+        private void btnbuscar_Click(object sender, EventArgs e)
+        {
+            string nombre = txtnombre.Text.Trim();
+            string apellido = txtapellido.Text.Trim();
+
+            try
+            {
+                using (MySqlConnection con = new MySqlConnection(conexion))
+                {
+                    con.Open();
+
+                    // consulta con filtros opcionales
+                    string query = @"
+                SELECT p.nombre AS Nombre, 
+                       p.apellido AS Apellido
+                FROM Cliente c
+                INNER JOIN Persona p ON c.idCliente = p.idPersona
+                WHERE (@nombre = '' OR p.nombre LIKE CONCAT('%', @nombre, '%'))
+                  AND (@apellido = '' OR p.apellido LIKE CONCAT('%', @apellido, '%'))
+                ORDER BY p.nombre, p.apellido;";
+
+                    using (MySqlCommand cmd = new MySqlCommand(query, con))
+                    {
+                        // pasar parámetros
+                        cmd.Parameters.AddWithValue("@nombre", nombre);
+                        cmd.Parameters.AddWithValue("@apellido", apellido);
+
+                        MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+
+                        dataGridView1.DataSource = dt;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al buscar clientes: " + ex.Message);
+            }
+        }
+
+        private void btnvolver_Click(object sender, EventArgs e)
+        {
+            FormAdmin admin = new FormAdmin();
+            admin.Show();
+            this.Close();
         }
     }
 }

@@ -69,6 +69,7 @@
             this.btnbuscar.TabIndex = 3;
             this.btnbuscar.Text = "Buscar";
             this.btnbuscar.UseVisualStyleBackColor = true;
+            this.btnbuscar.Click += new System.EventHandler(this.btnbuscar_Click);
             // 
             // btnvolver
             // 
@@ -78,6 +79,7 @@
             this.btnvolver.TabIndex = 4;
             this.btnvolver.Text = "volver";
             this.btnvolver.UseVisualStyleBackColor = true;
+            this.btnvolver.Click += new System.EventHandler(this.btnvolver_Click);
             // 
             // dataGridView1
             // 

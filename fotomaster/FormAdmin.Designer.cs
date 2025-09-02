@@ -33,6 +33,7 @@
             this.btnsalir = new System.Windows.Forms.Button();
             this.btnreportes = new System.Windows.Forms.Button();
             this.btnventa = new System.Windows.Forms.Button();
+            this.btnclientefoto = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnregistrocliente
@@ -53,6 +54,7 @@
             this.btnregistrousuario.TabIndex = 3;
             this.btnregistrousuario.Text = "Usuarios";
             this.btnregistrousuario.UseVisualStyleBackColor = true;
+            this.btnregistrousuario.Click += new System.EventHandler(this.btnregistrousuario_Click);
             // 
             // btnsalir
             // 
@@ -81,12 +83,24 @@
             this.btnventa.TabIndex = 6;
             this.btnventa.Text = "Venta";
             this.btnventa.UseVisualStyleBackColor = true;
+            this.btnventa.Click += new System.EventHandler(this.btnventa_Click);
+            // 
+            // btnclientefoto
+            // 
+            this.btnclientefoto.Location = new System.Drawing.Point(22, 407);
+            this.btnclientefoto.Name = "btnclientefoto";
+            this.btnclientefoto.Size = new System.Drawing.Size(159, 68);
+            this.btnclientefoto.TabIndex = 7;
+            this.btnclientefoto.Text = "Clientes Fotos";
+            this.btnclientefoto.UseVisualStyleBackColor = true;
+            this.btnclientefoto.Click += new System.EventHandler(this.btnclientefoto_Click);
             // 
             // FormAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1210, 662);
+            this.Controls.Add(this.btnclientefoto);
             this.Controls.Add(this.btnventa);
             this.Controls.Add(this.btnreportes);
             this.Controls.Add(this.btnsalir);
@@ -105,5 +119,6 @@
         private System.Windows.Forms.Button btnsalir;
         private System.Windows.Forms.Button btnreportes;
         private System.Windows.Forms.Button btnventa;
+        private System.Windows.Forms.Button btnclientefoto;
     }
 }

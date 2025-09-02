@@ -31,5 +31,26 @@ namespace fotomaster
             login.Show();
             this.Close();
         }
+
+        private void btnregistrousuario_Click(object sender, EventArgs e)
+        {
+            FormRegistrousuario usuario = new FormRegistrousuario();
+            usuario.Show();
+            this.Close();
+        }
+
+        private void btnventa_Click(object sender, EventArgs e)
+        {
+            FormVenta venta = new FormVenta();
+            venta.Show();
+            this.Close();
+        }
+
+        private void btnclientefoto_Click(object sender, EventArgs e)
+        {
+            FormClientefoto clientefoto = new FormClientefoto();
+            clientefoto.Show();
+            this.Close();
+        }
     }
 }
