@@ -27,7 +27,7 @@ namespace fotomaster
             // 🔹 Ocultar el ListBox al inicio
             listClientes.Visible = false;
             this.dgvFotos.CellClick += new DataGridViewCellEventHandler(this.dgvFotos_CellClick);
-            this.btndescargar.Click += new EventHandler(this.btndescargar_Click);
+           // this.btndescargar.Click += new EventHandler(this.btndescargar_Click);
         }
 
         private void btnvolver_Click(object sender, EventArgs e)
@@ -170,16 +170,13 @@ namespace fotomaster
             {
                 DataGridViewRow row = dgvFotos.Rows[e.RowIndex];
 
-                if (row.Cells["Foto"].Value != DBNull.Value)
+                if (row.Cells["Foto"].Value != null && row.Cells["Foto"].Value is Image)
                 {
-                    byte[] imgBytes = (byte[])row.Cells["Foto"].Value;
-                    using (MemoryStream ms = new MemoryStream(imgBytes))
-                    {
-                        pictureBox1.Image = Image.FromStream(ms);
-                    }
+                    pictureBox1.Image = (Image)row.Cells["Foto"].Value;
                 }
             }
         }
+
 
         private void btndescargar_Click(object sender, EventArgs e)
         {
@@ -187,24 +184,24 @@ namespace fotomaster
             {
                 using (SaveFileDialog sfd = new SaveFileDialog())
                 {
-                    sfd.Filter = "Imagen PNG|*.png|Imagen JPG|*.jpg";
-                    sfd.FileName = "foto_cliente";
+                    sfd.Filter = "PNG Image|*.png|JPEG Image|*.jpg|Bitmap Image|*.bmp";
+                    sfd.Title = "Guardar imagen";
 
                     if (sfd.ShowDialog() == DialogResult.OK)
                     {
-                        // Guardar en el formato elegido
-                        if (sfd.FilterIndex == 1)
-                            pictureBox1.Image.Save(sfd.FileName, System.Drawing.Imaging.ImageFormat.Png);
-                        else
-                            pictureBox1.Image.Save(sfd.FileName, System.Drawing.Imaging.ImageFormat.Jpeg);
+                        // 🔹 Clonar la imagen para evitar bloqueo de GDI+
+                        using (Bitmap bmp = new Bitmap(pictureBox1.Image))
+                        {
+                            bmp.Save(sfd.FileName, System.Drawing.Imaging.ImageFormat.Png);
+                        }
 
-                        MessageBox.Show("Imagen descargada correctamente ✅", "Descarga", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Imagen guardada correctamente");
                     }
                 }
             }
             else
             {
-                MessageBox.Show("No hay ninguna imagen seleccionada.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("No hay ninguna imagen en el PictureBox");
             }
         }
     }
