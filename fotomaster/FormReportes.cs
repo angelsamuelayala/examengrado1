@@ -199,7 +199,7 @@ namespace fotomaster
                     JOIN Servicio s ON ds.idServicio = s.idServicio
                     WHERE v.pago < (SELECT SUM(dv2.subtotal * dv2.cantidad) FROM DetalleVenta dv2 WHERE dv2.idVenta = v.idVenta)
                     AND (v.pago < (SELECT SUM(dv2.subtotal * dv2.cantidad) FROM DetalleVenta dv2 WHERE dv2.idVenta = v.idVenta) AND YEAR(v.fecha) = @anio";
-
+                
                 if (mes > 0)
                 {
                     query += " AND MONTH(v.fecha) = @mes";
