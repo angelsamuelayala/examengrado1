@@ -52,5 +52,19 @@ namespace fotomaster
             clientefoto.Show();
             this.Close();
         }
+
+        private void btnservicios_Click(object sender, EventArgs e)
+        {
+            FormServicios servicio = new FormServicios();
+            servicio.Show();
+            this.Close();
+        }
+
+        private void btndetalleventa_Click(object sender, EventArgs e)
+        {
+            FormDetalleventa detalleventa = new FormDetalleventa();
+            detalleventa.Show();
+            this.Close();
+        }
     }
 }

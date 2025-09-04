@@ -34,6 +34,8 @@
             this.btnreportes = new System.Windows.Forms.Button();
             this.btnventa = new System.Windows.Forms.Button();
             this.btnclientefoto = new System.Windows.Forms.Button();
+            this.btnservicios = new System.Windows.Forms.Button();
+            this.btndetalleventa = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnregistrocliente
@@ -95,11 +97,33 @@
             this.btnclientefoto.UseVisualStyleBackColor = true;
             this.btnclientefoto.Click += new System.EventHandler(this.btnclientefoto_Click);
             // 
+            // btnservicios
+            // 
+            this.btnservicios.Location = new System.Drawing.Point(22, 481);
+            this.btnservicios.Name = "btnservicios";
+            this.btnservicios.Size = new System.Drawing.Size(159, 68);
+            this.btnservicios.TabIndex = 8;
+            this.btnservicios.Text = "Servicios";
+            this.btnservicios.UseVisualStyleBackColor = true;
+            this.btnservicios.Click += new System.EventHandler(this.btnservicios_Click);
+            // 
+            // btndetalleventa
+            // 
+            this.btndetalleventa.Location = new System.Drawing.Point(22, 555);
+            this.btndetalleventa.Name = "btndetalleventa";
+            this.btndetalleventa.Size = new System.Drawing.Size(159, 73);
+            this.btndetalleventa.TabIndex = 9;
+            this.btndetalleventa.Text = "Detalle de venta";
+            this.btndetalleventa.UseVisualStyleBackColor = true;
+            this.btndetalleventa.Click += new System.EventHandler(this.btndetalleventa_Click);
+            // 
             // FormAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1210, 662);
+            this.Controls.Add(this.btndetalleventa);
+            this.Controls.Add(this.btnservicios);
             this.Controls.Add(this.btnclientefoto);
             this.Controls.Add(this.btnventa);
             this.Controls.Add(this.btnreportes);
@@ -120,5 +144,7 @@
         private System.Windows.Forms.Button btnreportes;
         private System.Windows.Forms.Button btnventa;
         private System.Windows.Forms.Button btnclientefoto;
+        private System.Windows.Forms.Button btnservicios;
+        private System.Windows.Forms.Button btndetalleventa;
     }
 }

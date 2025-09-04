@@ -116,6 +116,12 @@
     <Compile Include="FormClientefoto.Designer.cs">
       <DependentUpon>FormClientefoto.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormDetalleventa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDetalleventa.Designer.cs">
+      <DependentUpon>FormDetalleventa.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormEmpleado.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,6 +146,12 @@
     <Compile Include="FormRegistrousuario.Designer.cs">
       <DependentUpon>FormRegistrousuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormServicios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormServicios.Designer.cs">
+      <DependentUpon>FormServicios.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormVenta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -155,6 +167,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormClientefoto.resx">
       <DependentUpon>FormClientefoto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDetalleventa.resx">
+      <DependentUpon>FormDetalleventa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
