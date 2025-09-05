@@ -13,7 +13,7 @@ using Newtonsoft.Json;
 
 namespace fotomaster
 {
-   
+    
     public partial class FormVenta : Form
     {
         List<DetalleVentaTemp> detallesVenta = new List<DetalleVentaTemp>();
@@ -21,6 +21,7 @@ namespace fotomaster
         private int idClienteSeleccionado = 0;
         int idSucursal = Sucursal.CargarSucursal();
         decimal valorDescuento = Descuento.CargarDescuento();
+        private FaceEmbeddingService _faceService;
         public FormVenta()
         {
             InitializeComponent();
@@ -36,6 +37,19 @@ namespace fotomaster
             listClientes.Click += listClientes_Click;
             // 🔹 Ocultar el ListBox al inicio
             listClientes.Visible = false;
+
+            // Inicializa el servicio de IA al cargar el formulario
+            string modelsPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "models");
+            try
+            {
+                _faceService = new FaceEmbeddingService(modelsPath);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("IA no inicializada: " + ex.Message, "Modelos Dlib", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                _faceService = null;
+            }
+
         }
 
         private void btnvolver_Click(object sender, EventArgs e)
@@ -308,11 +322,29 @@ namespace fotomaster
                 {
                     if (detalle.fotobinario != null)
                     {
+                        byte[] embeddingBytes = null;
+
+                        // Generar embedding usando IA
+                        if (_faceService != null)
+                        {
+                            using (var ms = new MemoryStream(detalle.fotobinario))
+                            using (var bmp = new Bitmap(ms))
+                            {
+                                double[] embedding = _faceService.GetEncodingFromBitmap(bmp);
+                                if (embedding != null)
+                                {
+                                    embeddingBytes = FaceEmbeddingService.DoubleArrayToBytes(embedding);
+                                }
+                            }
+                        }
+
                         using (MySqlCommand cmdFoto = new MySqlCommand(
-                            "INSERT INTO FotoDigital(idCliente,fotobinario,fecha) VALUES(@idCliente,@fotobinario,CURDATE())", con))
+                         @"INSERT INTO FotoDigital(idCliente, fotobinario, fecha, embedding) 
+                          VALUES(@idCliente, @fotobinario, CURDATE(), @embedding)", con))
                         {
                             cmdFoto.Parameters.AddWithValue("@idCliente", idCliente);
                             cmdFoto.Parameters.AddWithValue("@fotobinario", detalle.fotobinario);
+                            cmdFoto.Parameters.AddWithValue("@embedding", embeddingBytes != null ? (object)embeddingBytes : DBNull.Value);
                             cmdFoto.ExecuteNonQuery();
                         }
                     }

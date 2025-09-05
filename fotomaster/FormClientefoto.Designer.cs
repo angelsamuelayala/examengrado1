@@ -35,8 +35,15 @@
             this.btndescargar = new System.Windows.Forms.Button();
             this.btnRefrescar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnBuscarPorFoto = new System.Windows.Forms.Button();
+            this.BtnCargarFoto = new System.Windows.Forms.Button();
+            this.BtnIndexarEmbeddings = new System.Windows.Forms.Button();
+            this.pictureBoxConsulta = new System.Windows.Forms.PictureBox();
+            this.btnTestSelf = new System.Windows.Forms.Button();
+            this.btnCheckEmbeddings = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFotos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxConsulta)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvFotos
@@ -93,17 +100,82 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(1142, 73);
+            this.pictureBox1.Location = new System.Drawing.Point(1368, 121);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(366, 393);
+            this.pictureBox1.Size = new System.Drawing.Size(307, 309);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
+            // 
+            // btnBuscarPorFoto
+            // 
+            this.btnBuscarPorFoto.Location = new System.Drawing.Point(86, 627);
+            this.btnBuscarPorFoto.Name = "btnBuscarPorFoto";
+            this.btnBuscarPorFoto.Size = new System.Drawing.Size(188, 56);
+            this.btnBuscarPorFoto.TabIndex = 7;
+            this.btnBuscarPorFoto.Text = "BuscarPorFoto";
+            this.btnBuscarPorFoto.UseVisualStyleBackColor = true;
+            this.btnBuscarPorFoto.Click += new System.EventHandler(this.btnBuscarPorFoto_Click);
+            // 
+            // BtnCargarFoto
+            // 
+            this.BtnCargarFoto.Location = new System.Drawing.Point(50, 490);
+            this.BtnCargarFoto.Name = "BtnCargarFoto";
+            this.BtnCargarFoto.Size = new System.Drawing.Size(168, 52);
+            this.BtnCargarFoto.TabIndex = 8;
+            this.BtnCargarFoto.Text = "CargarFoto";
+            this.BtnCargarFoto.UseVisualStyleBackColor = true;
+            // 
+            // BtnIndexarEmbeddings
+            // 
+            this.BtnIndexarEmbeddings.Location = new System.Drawing.Point(357, 627);
+            this.BtnIndexarEmbeddings.Name = "BtnIndexarEmbeddings";
+            this.BtnIndexarEmbeddings.Size = new System.Drawing.Size(202, 45);
+            this.BtnIndexarEmbeddings.TabIndex = 9;
+            this.BtnIndexarEmbeddings.Text = "BtnIndexarEmbeddings";
+            this.BtnIndexarEmbeddings.UseVisualStyleBackColor = true;
+            this.BtnIndexarEmbeddings.Click += new System.EventHandler(this.BtnIndexarEmbeddings_Click_1);
+            // 
+            // pictureBoxConsulta
+            // 
+            this.pictureBoxConsulta.Location = new System.Drawing.Point(1035, 121);
+            this.pictureBoxConsulta.Name = "pictureBoxConsulta";
+            this.pictureBoxConsulta.Size = new System.Drawing.Size(306, 309);
+            this.pictureBoxConsulta.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxConsulta.TabIndex = 10;
+            this.pictureBoxConsulta.TabStop = false;
+            // 
+            // btnTestSelf
+            // 
+            this.btnTestSelf.Location = new System.Drawing.Point(665, 600);
+            this.btnTestSelf.Name = "btnTestSelf";
+            this.btnTestSelf.Size = new System.Drawing.Size(190, 34);
+            this.btnTestSelf.TabIndex = 11;
+            this.btnTestSelf.Text = " btnTestSelf";
+            this.btnTestSelf.UseVisualStyleBackColor = true;
+            this.btnTestSelf.Click += new System.EventHandler(this.btnTestSelf_Click);
+            // 
+            // btnCheckEmbeddings
+            // 
+            this.btnCheckEmbeddings.Location = new System.Drawing.Point(922, 584);
+            this.btnCheckEmbeddings.Name = "btnCheckEmbeddings";
+            this.btnCheckEmbeddings.Size = new System.Drawing.Size(181, 33);
+            this.btnCheckEmbeddings.TabIndex = 12;
+            this.btnCheckEmbeddings.Text = "btnCheckEmbedding";
+            this.btnCheckEmbeddings.UseVisualStyleBackColor = true;
+            this.btnCheckEmbeddings.Click += new System.EventHandler(this.btnCheckEmbeddings_Click);
             // 
             // FormClientefoto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1703, 566);
+            this.ClientSize = new System.Drawing.Size(1703, 726);
+            this.Controls.Add(this.btnCheckEmbeddings);
+            this.Controls.Add(this.btnTestSelf);
+            this.Controls.Add(this.pictureBoxConsulta);
+            this.Controls.Add(this.BtnIndexarEmbeddings);
+            this.Controls.Add(this.BtnCargarFoto);
+            this.Controls.Add(this.btnBuscarPorFoto);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnRefrescar);
             this.Controls.Add(this.btndescargar);
@@ -115,6 +187,7 @@
             this.Text = "FormClientefoto";
             ((System.ComponentModel.ISupportInitialize)(this.dgvFotos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxConsulta)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -129,5 +202,11 @@
         private System.Windows.Forms.Button btndescargar;
         private System.Windows.Forms.Button btnRefrescar;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnBuscarPorFoto;
+        private System.Windows.Forms.Button BtnCargarFoto;
+        private System.Windows.Forms.Button BtnIndexarEmbeddings;
+        private System.Windows.Forms.PictureBox pictureBoxConsulta;
+        private System.Windows.Forms.Button btnTestSelf;
+        private System.Windows.Forms.Button btnCheckEmbeddings;
     }
 }
