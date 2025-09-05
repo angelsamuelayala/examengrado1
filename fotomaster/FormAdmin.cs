@@ -66,5 +66,13 @@ namespace fotomaster
             detalleventa.Show();
             this.Close();
         }
+
+        
+        private void btnReportes_Click(object sender, EventArgs e)
+        {
+            
+            FormReportes reportesForm = new FormReportes();
+            reportesForm.Show();
+        }
     }
 }
